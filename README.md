@@ -7,6 +7,10 @@
 When a student is in front of the laptop webcam, the system captures each frame, identifies faces, and then crops and resizes these faces to extract facial embeddings using the pre-trained FaceNet model. Subsequently, it computes the cosine similarity between these embeddings and the images of other students stored in the database. A very low cosine distance score indicates a match, while a large distance score suggests a mismatch. Finally, the system sorts the distance scores for each student in ascending order, and if the lowest score is below a certain threshold, it returns the corresponding student ID as the matched student.
 
 ## Running the system
-1. Save the student ID and name in the Students_informations excel sheet.
-2. In the database folder, create folder named after each individual student, where one of their picture is saved.
-3. Then run the main file
+1. Save the student IDs and Names in the Students_informations excel sheet.
+2. In the database directory, establish a folder for each individual student's name and save one of their pictures in each respective folder.
+3. Then run the main.py file.
+
+## Adding the entry of a new student
+1. Simply run the add_new_entry.py file.
+
