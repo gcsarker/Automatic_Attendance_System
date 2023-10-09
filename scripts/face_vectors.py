@@ -39,7 +39,7 @@ def find_target_identity(img, embeddings):
     return identity, prev_dist
 
 
-def make_representations(database_path, representations_path):
+def make_representations(database_path = 'database', representations_path = 'representations'):
     embeddings = {}
     target_frame_size = (IMG_SIZE, IMG_SIZE)
     students = os.listdir(database_path)
@@ -60,15 +60,20 @@ def make_representations(database_path, representations_path):
         pickle.dump(embeddings, fp)
         print('Face embeddings saved successfully to file')
         fp.close()
+    return embeddings
 
 
-def load_representations(representations_path):
+def load_representations(representations_path = 'representations'):
     try:
         with open(representations_path + '/representations.pkl', 'rb') as fp:
             embeddings = pickle.load(fp)
             fp.close()
     except:
-        embeddings = None
+        embeddings = make_representations(
+            database_path = 'database',
+            representations_path = 'representations'
+        )
+                       
     return embeddings
 
 
