@@ -1,0 +1,2 @@
+from scripts.inference import new_entry_to_database
+new_entry_to_database(None)
